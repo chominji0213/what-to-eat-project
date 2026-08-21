@@ -60,5 +60,5 @@ def get_restaurant(query: str) -> dict:
     }
     
 if __name__ == "__main__":
-    # 터미널에서 python -m tools.restaurant_tool 로 단독 테스트
-    print(get_restaurant("성수 디저트"))
+    # 터미널에서 python -m tools.restaurant_tool로 테스트
+    print(get_restaurant("성수 퓨전한식"))

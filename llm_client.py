@@ -23,7 +23,6 @@ def build_agent():
 def ask(agent, user_message: str, thread_id: str) -> str:
     config = {'configurable': {'thread_id': thread_id}}
     result = agent.invoke({'messages': [HumanMessage(content=user_message)]}, config)
-    rprint(result)
     final_result = result['messages'][-1].content[0]['text']
     
     return final_result

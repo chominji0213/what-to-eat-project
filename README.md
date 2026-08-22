@@ -17,7 +17,7 @@ https://what-to-eat-project.onrender.com (Render 무료 플랜, 15분 미접속 
 
 - Language: Python
 - Frontend: Streamlit
-- LLM / Agent: LangChain (`create_agent`), LangGraph (`InMemorySaver`)
+- LLM / Agent: LangChain (`create_agent`), LangGraph (`SqliteSaver`)
 - 외부 API: 기상청 단기예보 API, 카카오 로컬 API
 - Infra: Docker, Render
 
@@ -26,7 +26,9 @@ https://what-to-eat-project.onrender.com (Render 무료 플랜, 15분 미접속 
 - 지역 기반 맛집 검색
 - 지역별 실시간 날씨 조회
 - 질문 맥락에 따라 하나 또는 여러 개의 도구를 조합해서 사용하는 Tool Calling 에이전트
-- 대화 맥락을 기억하는 멀티턴 대화
+- 서버가 재시작되어도 유지되는 대화 기록 (SQLite 기반 영구 저장)
+- 답변이 실시간으로 타이핑되듯 나타나는 스트리밍 응답
+- 사이드바 "새 대화 시작" 버튼으로 대화 초기화
 
 ## 프로젝트 구조
 
@@ -69,5 +71,6 @@ docker run --env-file .env -p 8501:8501 what-to-eat-project
 
 - 여러 개의 Tool을 등록했을 때, LLM이 상황에 맞게 도구를 선택/조합하도록 프롬프트와 함수 설계를 구성하는 방법
 - 인증 방식이 다른 두 개의 외부 API(쿼리 파라미터 방식, 헤더 방식)를 연동하는 방법
-- LangGraph 체크포인터를 이용한 대화 상태 관리
+- LangGraph 체크포인터를 이용한 대화 상태 관리 (InMemorySaver → SqliteSaver로 전환하여 서버 재시작에도 대화 기록 유지)
+- `agent.stream(stream_mode="messages")`로 토큰 단위 실시간 응답을 받아 Streamlit `st.write_stream()`으로 연결하는 방법
 - Docker 기반 배포 및 클라우드 환경에서의 트러블슈팅

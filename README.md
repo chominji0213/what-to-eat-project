@@ -7,10 +7,6 @@
 
 2026.08 (개인 학습 프로젝트)
 
-## 배포 링크
-
-https://what-to-eat-project.onrender.com (Render 무료 플랜, 15분 미접속 시 슬립되어 재접속 시 로딩에 약 1분 소요될 수 있습니다)
-
 ## 사용 기술
 
 `Python` `Streamlit` `LangChain` `LangGraph` `Google Gemini` `Docker`

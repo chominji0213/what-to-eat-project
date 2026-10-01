@@ -58,7 +58,3 @@ def get_restaurant(query: str) -> dict:
         '검색어': query,
         '결과': _parse_restaurants(data['documents'])
     }
-    
-if __name__ == "__main__":
-    # 터미널에서 python -m tools.restaurant_tool로 테스트
-    print(get_restaurant("성수 퓨전한식"))

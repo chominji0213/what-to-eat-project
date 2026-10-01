@@ -31,9 +31,7 @@ def ask(agent, user_message: str, thread_id: str) -> str:
     
     return final_result
 
-# ============================================================
-# 시즌2 (대화 기억 + 실시간 응답) 에서 새로 추가할 부분
-# ============================================================
+# 시즌2 (대화 기억 + 실시간 응답)에서 새로 추가
 def ask_stream(agent, user_message: str, thread_id: str):
     """
     ask()와 동일한 역할이지만, 답변을 한 번에 반환하지 않고
@@ -54,8 +52,3 @@ def ask_stream(agent, user_message: str, thread_id: str):
                 if text:
                     yield text
 
-
-if __name__ == "__main__":
-    agent = build_agent()
-    for piece in ask_stream(agent, "강남 맛집 추천해줘", "stream-test-2"):
-        print(piece, end="", flush=True)

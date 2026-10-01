@@ -121,8 +121,3 @@ def get_weather(city: str) -> dict:
         "강수확률": f"{values.get('POP', '정보없음')}%",
         "습도": f"{values.get('REH', '정보없음')}%",
     }
-
-
-if __name__ == "__main__":
-    # 터미널에서 python weather_tool.py로 테스트 하기 위함
-    print(get_weather("서울"))

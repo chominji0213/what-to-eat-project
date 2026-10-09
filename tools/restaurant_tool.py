@@ -7,7 +7,6 @@ LLM/Tool Calling 로직(llm_client.py)에서는 get_restaurant(query)만 호출�
 import os
 import requests
 from dotenv import load_dotenv
-from rich import print as rprint
 
 load_dotenv()
 

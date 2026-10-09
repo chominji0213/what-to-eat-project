@@ -1,7 +1,6 @@
 import streamlit as st
 import uuid
-from llm_client import build_agent, ask
-from llm_client import build_agent, ask, ask_stream
+from llm_client import build_agent, ask_stream
 
 #사이드바 "새 대화 시작" 버튼
 with st.sidebar:

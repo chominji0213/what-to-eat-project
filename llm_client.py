@@ -6,7 +6,6 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from tools.weather_tool import get_weather
 from tools.restaurant_tool import get_restaurant
 
-from rich import print as rprint
 
 def build_agent():
     llm = init_chat_model('gemini-3.1-flash-lite', model_provider='google_genai')
